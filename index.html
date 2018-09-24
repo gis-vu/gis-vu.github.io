@@ -19,10 +19,11 @@
       <script>
           require([
               "esri/Map",
+              "esri/layers/TileLayer",  // Require the TileLayer module
               "esri/views/MapView",
               "esri/layers/FeatureLayer",
               "dojo/domReady!",
-            ], function(Map, MapView, FeatureLayer) {
+            ], function(Map, TileLayer, MapView, FeatureLayer) {
 
             var map = new Map({
               basemap: "gray"
@@ -32,13 +33,21 @@
                 url: "https://services9.arcgis.com/Ft7DENNtF3ueB5vS/arcgis/rest/services/data10/FeatureServer"
             });
               
-            map.add(featureLayer);
+             var protectedAreas = new FeatureLayer({
+      url: "https://services9.arcgis.com/Ft7DENNtF3ueB5vS/arcgis/rest/services/nac_parkai/FeatureServer"
+    });
+
+
+              
+          
+              map.add(protectedAreas);
+              
               
             var view = new MapView({
               container: "viewDiv",
               map: map,
-              center: [-118.71511,34.09042],
-              zoom: 10
+              center: [23.897,55.322],
+              zoom: 8
             });
           });
       </script>
