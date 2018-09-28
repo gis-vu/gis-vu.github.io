@@ -29,15 +29,14 @@
               basemap: "gray"
             });
 
-            var featureLayer = new FeatureLayer({
-                url: "https://services9.arcgis.com/Ft7DENNtF3ueB5vS/arcgis/rest/services/data10/FeatureServer"
-            });
-              
-             var protectedAreas = new FeatureLayer({
-      url: "https://services9.arcgis.com/Ft7DENNtF3ueB5vS/arcgis/rest/services/nac_parkai/FeatureServer"
-    });
+                         
+             var protectedAreas =  new FeatureLayer({
+    portalItem: { // autocasts as new PortalItem
+      id: "de5dad0fdcf94072a798f3e40d13ed03"
+    }
+  });
 
-
+               
               
           
               map.add(protectedAreas);
