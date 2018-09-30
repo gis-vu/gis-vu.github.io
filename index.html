@@ -3,55 +3,56 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>ArcGIS DevLabs: Create a JavaScript starter app</title>
-    <style>
-      html, body, #viewDiv {
-        padding: 0;
-        margin: 0;
-        height: 100%;
-        width: 100%;
-      }
+    
+    <title>MAPBOX</title>
+    
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css' rel='stylesheet' />
+      
+      
+         <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
     </style>
       
-      <link rel="stylesheet" href="https://js.arcgis.com/4.8/esri/css/main.css">
-      <script src="https://js.arcgis.com/4.8/"></script>
-     
-      <script>
-          require([
-              "esri/Map",
-              "esri/layers/TileLayer",  // Require the TileLayer module
-              "esri/views/MapView",
-              "esri/layers/FeatureLayer",
-              "dojo/domReady!",
-            ], function(Map, TileLayer, MapView, FeatureLayer) {
-
-            var map = new Map({
-              basemap: "gray"
-            });
-
-                         
-             var protectedAreas =  new FeatureLayer({
-    portalItem: { // autocasts as new PortalItem
-      id: "de5dad0fdcf94072a798f3e40d13ed03"
-    }
-  });
-
-               
-              
-          
-              map.add(protectedAreas);
-              
-              
-            var view = new MapView({
-              container: "viewDiv",
-              map: map,
-              center: [23.897,55.322],
-              zoom: 8
-            });
-          });
-      </script>
   </head>
   <body>
-    <div id="viewDiv"></div>
+    <div id='map'></div>
+
+
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZGFpbml1c2thdm9saXVuYXMiLCJhIjoiY2ptbHNrd2d0MGFybzNxbzdiM2ttOG9jZiJ9.b94lBZSOYTNLvLLTjUx8OA';
+    var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/dainiuskavoliunas/cjmokl18u00q32sljbeffo8k7',
+    center: [23.897,55.322],
+    zoom: 7
+    });
+    
+    
+    
+    
+    map.on('load', function () {
+
+    map.addLayer({
+        "id": "ltu-parks",
+        "type": "fill",
+        "source": {
+            type: 'vector',
+            url: 'mapbox://dainiuskavoliunas.f34e329f'
+        },
+        "source-layer": "Parks",
+        "layout": {
+        
+        },
+        "paint": {
+            "fill-color": "#228B22",
+            "fill-opacity": 1
+        }
+    });
+});
+    
+</script>
+      
   </body>
 </html>
