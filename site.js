@@ -4,7 +4,7 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/dainiuskavoliunas/cjmokl18u00q32sljbeffo8k7',
     center: [23.897, 55.322],
-    zoom: 7
+    zoom: 10
 });
 
 
@@ -28,7 +28,29 @@ map.on('load', function() {
     });
 
 
-    map.addLayer({
+ 
+    
+    
+     map.addLayer({
+        "id": "routes-osm",
+        "type": "line",
+        "source": {
+            type: 'vector',
+            url: 'mapbox://dainiuskavoliunas.4b747573'
+        },
+        "source-layer": "Keliai_OSM",
+        "layout": {
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "paint": {
+            "line-color": "#ff69b4",
+            "line-width": 1
+        }
+    });
+    
+    
+       map.addLayer({
         "id": "ltu-parks-names",
         "type": "symbol",
         "source": {
@@ -49,6 +71,7 @@ map.on('load', function() {
         },
         "interactive": false
     });
+    
 });
 
  map.on('mouseenter', 'ltu-parks', function () {
