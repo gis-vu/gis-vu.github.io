@@ -22,8 +22,7 @@ map.on('load', function() {
         "layout": {},
         "paint": {
             "fill-color": "#228B22",
-            "fill-opacity": 1,
-            "fill-outline-color": "black"
+            "fill-opacity": 1
         }
     });
 
@@ -44,8 +43,73 @@ map.on('load', function() {
             "line-cap": "round"
         },
         "paint": {
-            "line-color": "#ff69b4",
-            "line-width": 1
+            "line-color": [
+                'match',
+                ['get', 'fclass'],
+                'bridleway', "black",
+                'cycleway', 'black',
+                'footway', 'black',
+                'living_street', 'white',
+                'motorway', 'pink',
+                'motorway_link', 'pink',
+                'path', 'black',
+                'pedestrian', 'white',
+                'primary', 'pink',
+                'primary_link', 'pink',
+                'residential', 'white',
+                'secondary', 'pink',
+                'secondary_link', 'pink',
+                'service', 'white',
+                'steps', 'black',
+                'tertiary', 'white',
+                'track', 'white',
+                'track_grade1', 'white',
+                'track_grade2', 'white',
+                'track_grade3', 'white',
+                'track_grade4', 'white',
+                'track_grade5', 'white',
+                'trunk', 'pink',
+                'trunk_link', 'pink',
+                'unclassified', 'white',
+                /* other */ 'yellow'
+            ],
+            "line-width": [
+                'match',
+                ['get', 'fclass'],
+                'bridleway', 1,
+                'cycleway', 1,
+                'footway', 1,
+                'living_street', 2,
+                'motorway', 5,
+                'motorway_link', 3,
+                'path', 1,
+                'pedestrian', 2,
+                'primary', 5,
+                'primary_link', 3,
+                'residential', 3,
+                'secondary', 5,
+                'secondary_link', 3,
+                'service', 2,
+                'steps', 3,
+                'tertiary', 3,
+                'track', 2,
+                'track_grade1', 2,
+                'track_grade2', 2,
+                'track_grade3', 2,
+                'track_grade4', 2,
+                'track_grade5', 2,
+                'trunk', 5,
+                'trunk_link', 3,
+                'unclassified', 3,
+                /* other */ 1
+            ]
+//            "line-dasharray": [
+//                'match',
+//                ['get', 'fclass'],
+//                'path', ["literal",[5,5]],
+//                'path2', ["literal",[5,5]],
+//                /* other */ ["literal",[1,0]]
+//            ]
         }
     });
     
@@ -133,6 +197,10 @@ function getElements(data){
     }
     
     return coords;
+}
+
+function getRoadColor(type){
+    return "white";
 }
     
 
