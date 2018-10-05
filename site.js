@@ -78,7 +78,7 @@ map.on('load', function() {
                 ['get', 'fclass'],
                 'bridleway', 1,
                 'cycleway', 1,
-                'footway', 1,
+                'footway', 2,
                 'living_street', 2,
                 'motorway', 5,
                 'motorway_link', 3,
