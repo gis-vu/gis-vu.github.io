@@ -90,7 +90,7 @@ map.on('load', function() {
                 'secondary', 5,
                 'secondary_link', 3,
                 'service', 2,
-                'steps', 3,
+                'steps', 4,
                 'tertiary', 3,
                 'track', 2,
                 'track_grade1', 2,
