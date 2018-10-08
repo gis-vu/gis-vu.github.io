@@ -149,7 +149,11 @@ map.on('load', function() {
 
 
  map.on('click', 'ltu-parks', function (e) {
-        var coordinates = e.features[0].geometry.coordinates;
+        
+     if( map.getZoom() > 10)
+         return;
+     
+     var coordinates = e.features[0].geometry.coordinates;
         var name = e.features[0].properties.name;
     
         var bounds = getBoundingBox(e);
