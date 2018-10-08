@@ -198,9 +198,68 @@ function getElements(data){
     
     return coords;
 }
-
-function getRoadColor(type){
-    return "white";
-}
     
+function addRoute (coords) {
+  // check if the route is already loaded
+  if (map.getSource('route')) {
+    map.removeLayer('route')
+    map.removeSource('route')
+  }
+    map.addLayer({
+      "id": "route",
+      "type": "line",
+      "source": {
+        "type": "geojson",
+        "data": {
+          "type": "Feature",
+          "properties": {},
+          "geometry": coords
+        }
+      },
+      "layout": {
+        "line-join": "round",
+        "line-cap": "round"
+      },
+      "paint": {
+        "line-color": "#3b9ddd",
+        "line-width": 8,
+        "line-opacity": 0.8
+      }
+    });
+  
+}
 
+
+map.on('click', function (e) {
+    
+       input.value = JSON.stringify(e.lngLat);
+});
+
+input = null;
+
+function inputClicked(input2){
+    input=input2;
+}
+
+function findRoute(){
+    
+    var start = document.getElementById("start").value;
+    var end = document.getElementById("end").value;
+    
+    var request = 
+        {
+            'start':JSON.parse(start),
+            'end':JSON.parse(end)
+        }
+    
+    var url = 'https://gis-vu-api.azurewebsites.net/api/route';
+    
+    fetch(url, {
+        method: "POST", 
+        headers: {"Content-Type": "application/json; charset=utf-8"}, 
+        body: JSON.stringify(request),
+    })
+    .then(response => response.json())
+    .then(data => addRoute(data));
+    
+}
