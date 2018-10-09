@@ -11,21 +11,29 @@
     
    <body>
       <div id='map'></div>
-      <div class='info-box'>
-          <input id='start' onclick="inputClicked(this)">
-          <input id='end' onclick="inputClicked(this)">
-          <input type='button' value="Find route" onclick="findRoute()">
+
+      <div class='infoBox'>
+          <div class="startMarker" style="margin: 10px"></div>
+          <p id="startMarkerStatus">Nepasirinktas</p>
+       
+          <div class="endMarker" style="margin: 10px"></div>
+          <p id="EndMarkerStatus">Nepasirinktas</p>
+          
+          <input class="searchBtn" type='button' value="Ieškoti maršruto" disabled>
           <p id='text'></p>
       </div>
-       
-        <div id='context-menu'>
-            <input type="button" value="Maršruto pradžia">       
-            <input type="button" value="Maršruto pabaiga">       
-        </div>   
+
+  
+<!--
+         
        
        <div id="start-marker"></div>
        <div id="end-marker"></div>
-       
+-->
+      <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
       <script src="site.js"></script>
    </body>
     

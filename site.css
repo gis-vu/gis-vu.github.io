@@ -1,7 +1,12 @@
 body { margin:0; padding:0; }
-#map { position:absolute; top:0; bottom:0; width:100%; }
-  .info-box {
-    height: 100px;
+#map { position:absolute; top:0; bottom:0; width:100%;}
+  
+#map canvas {
+        cursor: default;
+}
+
+.infoBox {
+    height: 200px;
     width: 150px;
     position: absolute;
     top: 20px;
@@ -14,15 +19,87 @@ body { margin:0; padding:0; }
     font-size: 13px;
   }
 
+.startMarker{
+  margin-top: -15px;  
+  margin-left: 15px;   
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  background: #A7F432;
+}
 
-#context-menu {
+.startMarker:after  {
+  content: "";
+  width: 14px;
+  height: 14px;
+  margin: 8px 0 0 8px;
+  background: white;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.endMarker{
+  margin-top: -15px;  
+  margin-left: 15px; 
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  background: #FFBF00;
+}
+
+.endMarker:after  {
+  content: "";
+  width: 14px;
+  height: 14px;
+  margin: 8px 0 0 8px;
+  background: white;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.tempMarker{
+  margin-top: -15px;  
+  margin-left: 15px;  
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  background: #5D76CB;
+/*  margin: 10px;*/
+}
+
+.tempMarker:after  {
+  content: "";
+  width: 14px;
+  height: 14px;
+  margin: 8px 0 0 8px;
+  background: white;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.searchBtn{
+    width: 100%;
+    height: 30px;
+}
+
+
+.contextMenu {
+    margin-top:  30px;  
+    margin-left: 75px;  
     height: 60px;
     width: 150px;
     position: absolute;
-    top: 30px;
-    left: 75px;
     background-color: rgba(255, 255, 255, 1);
   }
+
+.contextMenu input {
+    width: 100%;
+        height: 30px;
+
+}
+
+/*
+
 
 #context-menu input{
     width: 100%;
@@ -34,11 +111,8 @@ body { margin:0; padding:0; }
   height: 30px;
   border-radius: 50% 50% 50% 0;
   background: #00cae9;
-  position: absolute;
+  position: absolute;  
 
-  
- 
-     
 }
 
 
@@ -59,4 +133,4 @@ body { margin:0; padding:0; }
   border-radius: 50%;
   cursor: pointer;
   position: absolute;
-}
+}*/
