@@ -203,14 +203,14 @@ function getElements(data){
     return coords;
 }
     
-function addRoute (coords) {
+function addRoute (coords, i) {
   // check if the route is already loaded
-  if (map.getSource('route')) {
-    map.removeLayer('route')
-    map.removeSource('route')
-  }
+//  if (map.getSource('route')) {
+//    map.removeLayer('route')
+//    map.removeSource('route')
+//  }
     map.addLayer({
-      "id": "route",
+      "id": "route" + i,
       "type": "line",
       "source": {
         "type": "geojson",
@@ -264,6 +264,35 @@ function findRoute(){
         body: JSON.stringify(request),
     })
     .then(response => response.json())
-    .then(data => addRoute(data));
+    .then(data => process(data));
     
+}
+
+routesCount = 0;
+
+function process (data){
+    
+    var text = document.getElementById("text");
+    text.innerHTML  = 'lol';
+    
+    if(data.routes.length == 0)
+        text.innerHTML = "Nerasta maršrutų";
+    else{
+        cleanRoutes(routesCount);
+        routesCount = data.routes.length;
+        var i = 0;
+        data.routes.forEach(function(element) {
+          addRoute(element, i)
+            text.innerHTML += i;
+            i++;
+        });
+    }
+}
+
+function cleanRoutes(count){
+    for(var i =0; i < count; i++)
+        if (map.getSource('route' + i)) {
+            map.removeLayer('route' + i)
+            map.removeSource('route' + i)
+        }
 }
