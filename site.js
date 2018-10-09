@@ -165,6 +165,42 @@ map.on('load', function() {
 //     alert(name);
  })
 
+map.on("contextmenu",function(e) {
+    
+    var tlatlng=e.lngLat;
+    var point = e.point;
+    
+    var menu = document.getElementById("context-menu");
+    var startMarker = document.getElementById("start-marker");
+    var endMarker = document.getElementById("end-marker");
+    
+   // menu.style.top=point.y + 'px';
+    //menu.style.left=point.x + 'px';
+    
+    //startMarker.style.top=point.y + 'px';
+    //startMarker.style.left=point.x + 'px';
+    
+    
+    
+    new mapboxgl.Marker(startMarker)
+    .setLngLat(tlatlng)
+    .addTo(map);
+    
+    
+     new mapboxgl.Marker(menu)
+    .setLngLat(tlatlng)
+    .addTo(map);
+    
+    
+//    var el = document.createElement('div');
+//  el.className = 'marker';
+
+    
+    //alert("You've tried to open context menu"); //here you draw your own menu
+            e.preventDefault();
+    
+});
+
 function getBoundingBox(data) {
     var bounds = {};
 
@@ -233,7 +269,7 @@ function addRoute (coords, i) {
   
 }
 
-var colors = ['#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe'];
+var colors = ['#e6194b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe'];
 
 
 map.on('click', function (e) {
