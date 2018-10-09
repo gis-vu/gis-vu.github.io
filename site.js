@@ -225,13 +225,15 @@ function addRoute (coords, i) {
         "line-cap": "round"
       },
       "paint": {
-        "line-color": "#3b9ddd",
+        "line-color": colors[i],
         "line-width": 8,
         "line-opacity": 0.8
       }
     });
   
 }
+
+var colors = ['#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe'];
 
 
 map.on('click', function (e) {
