@@ -61,6 +61,17 @@ function setRoute(className){
     
     
     //set in side menu
+    //setAsSelected("startMarker");
+    //setAsSelected("endMarker");
+    
+    if($(".searchBtn").prop('disabled')){
+        var startMarker = findMarkerWithClass("startMarker");
+        var endMarker = findMarkerWithClass("endMarker");
+        
+        
+        if(startMarker != null && endMarker != null)
+                $(".searchBtn").prop('disabled', false);
+    }
 }
 
 
