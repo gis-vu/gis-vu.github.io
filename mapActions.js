@@ -48,9 +48,9 @@ function setRouteStart(){
 
 
 function setRoute(className){
-    var startMarker = findMarkerWithClass(className);
+    var marker = findMarkerWithClass(className);
     
-    if(startMarker != null) startMarker.remove();
+    if(marker != null) marker.remove();
     removeMarkerFromArray(className);
     
     var tempMarker = findMarkerWithClass("tempMarker");
@@ -61,17 +61,25 @@ function setRoute(className){
     
     
     //set in side menu
-    //setAsSelected("startMarker");
-    //setAsSelected("endMarker");
+   
+    if(findMarkerWithClass('startMarker')!=null) setAsSelected("startMarker");
+    if(findMarkerWithClass('endMarker')!=null) setAsSelected("endMarker");
     
     if($(".searchBtn").prop('disabled')){
         var startMarker = findMarkerWithClass("startMarker");
         var endMarker = findMarkerWithClass("endMarker");
         
         
-        if(startMarker != null && endMarker != null)
-                $(".searchBtn").prop('disabled', false);
+        if(startMarker != null && endMarker != null){
+            $(".searchBtn").prop('disabled', false);
+        }
+                
     }
+}
+
+function setAsSelected(className){
+    $("." + className + "NotSelected").hide();
+    $("." + className + "Selected").show();
 }
 
 

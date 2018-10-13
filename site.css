@@ -98,6 +98,17 @@ body { margin:0; padding:0; }
 
 }
 
+.startMarkerSelected{
+    font-weight: bold;
+    display: none;
+}
+
+.endMarkerSelected{
+    font-weight: bold;
+    display: none;
+}
+
+
 /*
 
 
