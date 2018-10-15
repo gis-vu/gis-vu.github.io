@@ -31,6 +31,7 @@ function processResponse(data){
           addRoute(element, i);
             i++;
         });
+    highLight('route' + (routesCount - 1));
 }
 
 
@@ -44,7 +45,7 @@ function cleanRoutes(){
     $('#routeResultBox').empty();
 }
 
-function addRoute (coords, i) {
+function addRoute (route, i) {
   var colors = ['#e6194b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe'];
     
     map.addLayer({
@@ -55,7 +56,7 @@ function addRoute (coords, i) {
         "data": {
           "type": "Feature",
           "properties": {},
-          "geometry": coords
+          "geometry": route.data
         }
       },
       "layout": {
@@ -69,7 +70,7 @@ function addRoute (coords, i) {
       }
     });
   
-    addRouteInfo(colors[i],i, i);
+    addRouteInfo(colors[i], i, route.info.length);
 }
 
 function addRouteInfo(color, index, info){
