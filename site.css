@@ -126,7 +126,7 @@ body { margin:0; padding:0; }
 .routeResult{
     padding: 10px;
     margin: 10px;
-    border: 1px;
+    border-width: 1px;
     border-color: black;
     border-style: solid;
     cursor: pointer;

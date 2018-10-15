@@ -96,6 +96,11 @@ function addRouteInfo(color, index, info){
 
 function highLight(layerId){
     map.moveLayer(layerId);
+    
+    $('.routeResult').css("background", 'white');
+    $('#'+layerId).css("background", '#EEEEEE');
+    
+    
 //    map.setPaintProperty(layerId, "line-width", 16);
 }
 
