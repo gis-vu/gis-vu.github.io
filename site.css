@@ -131,39 +131,17 @@ body { margin:0; padding:0; }
     border-style: solid;
     cursor: pointer;
 }
-/*
-
-
-#context-menu input{
-    width: 100%;
-    height: 30px;
+.loader {
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    animation: spin 2s linear infinite;
+    display: none;
 }
 
-#start-marker {
- width: 30px;
-  height: 30px;
-  border-radius: 50% 50% 50% 0;
-  background: #00cae9;
-  position: absolute;  
-
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
-
-
-#start-marker:after  {
-  content: "";
-  width: 14px;
-  height: 14px;
-  margin: 8px 0 0 8px;
-  background: #e6e6e6;
-  position: absolute;
-  border-radius: 50%;
-}
-
-#end-marker {
-  background-color: orangered;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-  position: absolute;
-}*/

@@ -1,6 +1,13 @@
 routesCount = 0;
 
 function routeSearch(){
+    
+    var btn = $('.searchBtn')[0];
+    var loader = $('.loader')[0];
+    
+    $(btn).toggle();
+    $(loader).toggle();
+    
     var startMarker = findMarkerWithClass('startMarker');
     var endMarker = findMarkerWithClass('endMarker');
     
@@ -17,7 +24,11 @@ function routeSearch(){
         headers: {"Content-Type": "application/json; charset=utf-8"}, 
         body: JSON.stringify(request),
     })
-    .then(response => response.json())
+    .then(response => {
+        $(btn).toggle();
+        $(loader).toggle();
+        return response.json()
+    })
     .then(data => processResponse(data));
 }
 
@@ -99,7 +110,7 @@ function highLight(layerId){
     map.moveLayer(layerId);
     
     $('.routeResult').css("background", 'white');
-    $('#'+layerId).css("background", '#EEEEEE');
+    $('#'+layerId).css("background", '#C0C0C0');
     
     
 //    map.setPaintProperty(layerId, "line-width", 16);
