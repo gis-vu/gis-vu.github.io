@@ -65,17 +65,19 @@ function addRoute (coords, i) {
       "paint": {
         "line-color": colors[i],
         "line-width": 8,
-        "line-opacity": 0.8
+        "line-opacity": 1
       }
     });
   
-    addRouteInfo(colors[i],i);
+    addRouteInfo(colors[i],i, i);
 }
 
-function addRouteInfo(color, info){
+function addRouteInfo(color, index, info){
     
     var routeResult = document.createElement('div');
     routeResult.className = 'routeResult';
+    $(routeResult).attr("id","route" + index);
+    
     
     var routeColorBox = document.createElement('div');
     routeColorBox.className = 'routeColorBox';
@@ -88,6 +90,13 @@ function addRouteInfo(color, info){
     routeResult.append(routeInfo);
     
     $('#routeResultBox').append(routeResult);
+    
+    $(routeResult).click(function(){ highLight('route' + index);});
+}
+
+function highLight(layerId){
+    map.moveLayer(layerId);
+//    map.setPaintProperty(layerId, "line-width", 16);
 }
 
 //# sourceURL=routeSearchAction.js
