@@ -83,10 +83,12 @@ body { margin:0; padding:0; }
 }
 
 .startBtn{
+    font-size: 16px;
     background: #A7F432;
 }
 
 .endBtn{
+    font-size: 16px;
     background: #FFBF00;
 }
 
