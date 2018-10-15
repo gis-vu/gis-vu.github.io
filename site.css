@@ -82,6 +82,13 @@ body { margin:0; padding:0; }
     height: 30px;
 }
 
+.startBtn{
+    background: #A7F432;
+}
+
+.endBtn{
+    background: #FFBF00;
+}
 
 .contextMenu {
     margin-top:  30px;  
