@@ -13,4 +13,5 @@ function loadScript (url) {
 }
 
 loadScript('.\\initializeMap.js')
-    .then(loadScript(".\\mapActions.js"));
+    .then(loadScript(".\\mapActions.js"))
+    .then(loadScript(".\\routeSearchAction.js"));
