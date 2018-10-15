@@ -28,8 +28,7 @@ function processResponse(data){
     
     var i = 0;
         data.routes.forEach(function(element) {
-          addRoute(element, i)
-//            text.innerHTML += i;
+          addRoute(element, i);
             i++;
         });
 }
@@ -41,6 +40,8 @@ function cleanRoutes(){
             map.removeLayer('route' + i)
             map.removeSource('route' + i)
         }
+    
+    $('#routeResultBox').empty();
 }
 
 function addRoute (coords, i) {
@@ -68,8 +69,25 @@ function addRoute (coords, i) {
       }
     });
   
+    addRouteInfo(colors[i],i);
 }
 
-
+function addRouteInfo(color, info){
+    
+    var routeResult = document.createElement('div');
+    routeResult.className = 'routeResult';
+    
+    var routeColorBox = document.createElement('div');
+    routeColorBox.className = 'routeColorBox';
+    $(routeColorBox).css('background-color', color);
+    
+    var routeInfo = document.createElement('p');
+    $(routeInfo).text(info);
+    
+    routeResult.append(routeColorBox);
+    routeResult.append(routeInfo);
+    
+    $('#routeResultBox').append(routeResult);
+}
 
 //# sourceURL=routeSearchAction.js
