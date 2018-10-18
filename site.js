@@ -1,4 +1,4 @@
-var dev = true;
+var dev = false;
 
 var url = '';
 
