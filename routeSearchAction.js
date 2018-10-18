@@ -14,7 +14,12 @@ function routeSearch(){
     var request = 
         {
             'start':startMarker.getLngLat(),
-            'end':endMarker.getLngLat()
+            'end':endMarker.getLngLat(),
+            'searchOptions':{
+                'propertyImportance':[
+                    
+                ]
+            }
         }
         
     fetch(url, {

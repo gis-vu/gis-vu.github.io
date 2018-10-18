@@ -13,6 +13,7 @@
       <div id='map'></div>
 
       <div class='infoBox'>
+          <div class="settingsBtn" onclick="invertSettings()">Nustatymai</div>
           <div class="startMarker" style="margin: 10px"></div>
           <p class="startMarkerNotSelected">Nepasirinktas</p>
           <p class="startMarkerSelected">Pasirinktas</p>
@@ -28,12 +29,10 @@
       </div>
 
   
-<!--
-         
+       <div id="settings">
+           <div class="close" onclick="invertSettings()">X</div>
+       </div>
        
-       <div id="start-marker"></div>
-       <div id="end-marker"></div>
--->
       <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
