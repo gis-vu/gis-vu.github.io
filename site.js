@@ -1,3 +1,13 @@
+var dev = false;
+
+var url = '';
+
+if(dev){
+    url='http://localhost:5000/api/route';
+}else{
+    url = 'https://gis-vu-api.azurewebsites.net/api/route';
+}
+
 function loadScript (url) {
     return new Promise((resolve,reject)=>{
         $.ajax({

@@ -16,9 +16,7 @@ function routeSearch(){
             'start':startMarker.getLngLat(),
             'end':endMarker.getLngLat()
         }
-    
-    var url = 'https://gis-vu-api.azurewebsites.net/api/route';
-    
+        
     fetch(url, {
         method: "POST", 
         headers: {"Content-Type": "application/json; charset=utf-8"}, 
