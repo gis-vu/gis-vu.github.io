@@ -31,6 +31,27 @@
   
        <div id="settings">
            <div class="close" onclick="invertSettings()">X</div>
+           <h3>Kelio tipo kofiecientas</h3>
+           <div class="option">
+               <div class="routeTypeName">Takelis</div>
+               <div class="routeTypeIcon path">.</div>
+               <input id='pathValue' type="number" step="0.01" class="optionValue" value='1' min="0">
+           </div>
+           <div class="option">
+               <div class="routeTypeName">Takas</div>
+               <div class="routeTypeIcon walkingPath">.</div>
+               <input id='walkingPathValue' type="number" step="0.01" class="optionValue" value='1' min="0">
+           </div>
+           <div class="option">
+               <div class="routeTypeName">Kelias</div>
+               <div class="routeTypeIcon route">.</div>
+               <input id='routeValue' type="number" step="0.01" class="optionValue" value='1' min="0">
+           </div>
+           <div class="option">
+               <div class="routeTypeName">Rimtas kelias</div>
+               <div class="routeTypeIcon seriousRoute">.</div>
+               <input id='seriousRouteValue' type="number" step="0.01" class="optionValue" value='1' min="0">
+           </div>
        </div>
        
       <script
