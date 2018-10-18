@@ -11,13 +11,43 @@ function routeSearch(){
     var startMarker = findMarkerWithClass('startMarker');
     var endMarker = findMarkerWithClass('endMarker');
     
+    
+    var pathValue = $('#pathValue')[0].value;
+    var walkingPathValue = $('#walkingPathValue')[0].value;
+    var routeValue = $('#routeValue')[0].value;
+    var seriousRouteValue = $('#seriousRouteValue')[0].value;
+    
     var request = 
         {
             'start':startMarker.getLngLat(),
             'end':endMarker.getLngLat(),
             'searchOptions':{
                 'propertyImportance':[
-                    
+                    {"property": "fclass","value": "bridleway","importance":pathValue},
+                    {"property": "fclass","value": "cycleway","importance":pathValue},
+                    {"property": "fclass","value": "path","importance":pathValue},
+                    {"property": "fclass","value": "footway","importance":walkingPathValue},
+                    {"property": "fclass","value": "steps","importance":walkingPathValue},
+                    {"property": "fclass","value": "living_street","importance":routeValue},
+                    {"property": "fclass","value": "pedestrian","importance":routeValue},
+                    {"property": "fclass","value": "residential","importance":routeValue},
+                    {"property": "fclass","value": "service","importance":routeValue},
+                    {"property": "fclass","value": "tertiary","importance":routeValue},
+                    {"property": "fclass","value": "track","importance":routeValue},
+                    {"property": "fclass","value": "track_grade1","importance":routeValue},
+                    {"property": "fclass","value": "track_grade2","importance":routeValue},
+                    {"property": "fclass","value": "track_grade3","importance":routeValue},
+                    {"property": "fclass","value": "track_grade4","importance":routeValue},
+                    {"property": "fclass","value": "track_grade5","importance":routeValue},
+                    {"property": "fclass","value": "unclassified","importance":routeValue},
+                    {"property": "fclass","value": "motorway","importance":seriousRouteValue},
+                    {"property": "fclass","value": "motorway_link","importance":seriousRouteValue},
+                    {"property": "fclass","value": "primary","importance":seriousRouteValue},
+                    {"property": "fclass","value": "primary_link","importance":seriousRouteValue},
+                    {"property": "fclass","value": "secondary","importance":seriousRouteValue},
+                    {"property": "fclass","value": "secondary_link","importance":seriousRouteValue},
+                    {"property": "fclass","value": "trunk","importance":seriousRouteValue},
+                    {"property": "fclass","value": "trunk_link","importance":seriousRouteValue},
                 ]
             }
         }
