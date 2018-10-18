@@ -41,6 +41,9 @@ function processResponse(data){
             i++;
         });
     highLight('route' + (routesCount - 1));
+    
+    if(routesCount == 0)
+        alert('No route found');
 }
 
 
