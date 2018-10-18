@@ -7,6 +7,7 @@ var map = new mapboxgl.Map({
     zoom: 7
 });
 
+map.on("contextmenu", contextClicked);
 
 map.on('load', function() {
 

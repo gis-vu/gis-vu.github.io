@@ -12,6 +12,6 @@ function loadScript (url) {
     });
 }
 
-loadScript('.\\initializeMap.js')
-    .then(loadScript(".\\mapActions.js"))
+loadScript('.\\mapActions.js')
+    .then(loadScript(".\\initializeMap.js"))
     .then(loadScript(".\\routeSearchAction.js"));

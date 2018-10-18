@@ -1,6 +1,6 @@
 var markers = [];
 
-map.on("contextmenu",function(e) {
+function contextClicked(e) {
     
     cleanTempMarkers();
     
@@ -24,7 +24,7 @@ map.on("contextmenu",function(e) {
     markers.push(marker);
     
     e.preventDefault();
-});
+};
 
 function cleanTempMarkers(){
     
