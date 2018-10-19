@@ -58,6 +58,17 @@ body { margin:0; padding:0; }
     padding: 10px;
 }
 
+#downloadBox{
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: #C0C0C0;
+    opacity: 0.95;
+    margin: 10px;
+    display: none;
+    padding: 10px;
+}
+
 .close{
     text-align: right;
     padding: 10px;
@@ -212,6 +223,20 @@ body { margin:0; padding:0; }
     border-style: solid;
     cursor: pointer;
 }
+
+.routeResult2{
+    padding: 10px;
+    margin: 20px;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    width: 100px;
+    text-align: center;
+    background-color: white;
+    cursor: pointer;
+}
+
+
 .loader {
     border: 8px solid #f3f3f3; /* Light grey */
     border-top: 8px solid #3498db; /* Blue */

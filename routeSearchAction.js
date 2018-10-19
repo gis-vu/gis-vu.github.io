@@ -67,6 +67,9 @@ function routeSearch(){
 
 
 function processResponse(data){
+    
+    oldData = data;
+    
     cleanRoutes();
     routesCount = data.routes.length;
     
@@ -97,6 +100,7 @@ function cleanRoutes(){
         }
     
     $('#routeResultBox').empty();
+    $('#routeResultBox2').empty();
 }
 
 function addRoute (route, i) {
@@ -144,7 +148,30 @@ function addRouteInfo(color, index, info){
     routeResult.append(routeColorBox);
     routeResult.append(routeInfo);
     
+    
     $('#routeResultBox').append(routeResult);
+    
+    
+    
+    
+    var routeColorBox2 = document.createElement('div');
+    routeColorBox2.className = 'routeColorBox';
+    $(routeColorBox2).css('background-color', color);
+    
+    var routeResult2 = document.createElement('div');
+     routeResult2.className = 'routeResult2';
+    routeResult2.append(routeColorBox2);
+    
+    var routeInfo2 = document.createElement('p');
+    $(routeInfo2).text("Atsisiųsti");
+    
+    routeResult2.append(routeInfo2);
+    $(routeResult2).attr("id","downloadRoute_" + index);
+
+    
+    routeResult2.addEventListener("click", downloadRoute, false);
+    
+    $('#routeResultBox2').append(routeResult2);
     
     $(routeResult).click(function(){ highLight('route' + index);});
 }
