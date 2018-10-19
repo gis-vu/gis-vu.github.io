@@ -21,6 +21,7 @@ function routeSearch(){
     var walkingPathValue = $('#walkingPathValue')[0].value;
     var routeValue = $('#routeValue')[0].value;
     var seriousRouteValue = $('#seriousRouteValue')[0].value;
+    var routeOverlapValue = $('#routeOverlapValue')[0].value;
     
     var request = 
         {
@@ -28,6 +29,7 @@ function routeSearch(){
             'end':endMarker.getLngLat(),
             'point':pointMarkerCoordinates,
             'searchOptions':{
+                'trackOverlapImportance':routeOverlapValue,
                 'propertyImportance':[
                     {"property": "fclass","value": "bridleway","importance":pathValue},
                     {"property": "fclass","value": "cycleway","importance":pathValue},
