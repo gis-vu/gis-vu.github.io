@@ -10,7 +10,12 @@ function routeSearch(){
     
     var startMarker = findMarkerWithClass('startMarker');
     var endMarker = findMarkerWithClass('endMarker');
+    var pointMarker = findMarkerWithClass('pointMarker');
     
+    var pointMarkerCoordinates = null;
+    
+    if(pointMarker!=null)
+        pointMarkerCoordinates = pointMarker.getLngLat();
     
     var pathValue = $('#pathValue')[0].value;
     var walkingPathValue = $('#walkingPathValue')[0].value;
@@ -21,6 +26,7 @@ function routeSearch(){
         {
             'start':startMarker.getLngLat(),
             'end':endMarker.getLngLat(),
+            'point':pointMarkerCoordinates,
             'searchOptions':{
                 'propertyImportance':[
                     {"property": "fclass","value": "bridleway","importance":pathValue},

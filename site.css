@@ -149,6 +149,26 @@ body { margin:0; padding:0; }
   border-radius: 50%;
 }
 
+
+.pointMarker{
+  margin-top: -15px;  
+  margin-left: 15px; 
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  background: #5D76CB;
+}
+
+.pointMarker:after  {
+  content: "";
+  width: 14px;
+  height: 14px;
+  margin: 8px 0 0 8px;
+  background: white;
+  position: absolute;
+  border-radius: 50%;
+}
+
 .tempMarker{
   margin-top: -15px;  
   margin-left: 15px;  
@@ -179,15 +199,20 @@ body { margin:0; padding:0; }
     background: #A7F432;
 }
 
+.pointBtn{
+    font-size: 16px;
+    background: #5D76CB;
+}
+
 .endBtn{
     font-size: 16px;
     background: #FFBF00;
 }
 
 .contextMenu {
-    margin-top:  30px;  
+    margin-top:  45px;  
     margin-left: 75px;  
-    height: 60px;
+    height: 90px;
     width: 150px;
     position: absolute;
     background-color: rgba(255, 255, 255, 1);
@@ -205,6 +230,11 @@ body { margin:0; padding:0; }
 }
 
 .endMarkerSelected{
+    font-weight: bold;
+    display: none;
+}
+
+.pointMarkerSelected{
     font-weight: bold;
     display: none;
 }
