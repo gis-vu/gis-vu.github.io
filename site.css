@@ -76,6 +76,16 @@ body { margin:0; padding:0; }
     text-align: center;
 }
 
+.downloadBtn{
+    background: #C0C0C0;
+    padding: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px; 
+    display: none;
+}
+
 .infoBox {
     height: 700px;
     width: 150px;

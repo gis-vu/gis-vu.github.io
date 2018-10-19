@@ -75,10 +75,17 @@ function processResponse(data){
           addRoute(element, i);
             i++;
         });
-    highLight('route' + (routesCount - 1));
+   
     
-    if(routesCount == 0)
+    if(routesCount == 0){
+        hideDownloadBtn();
         alert('No route found');
+    }
+        
+    else{
+        showDownloadBtn();
+        highLight('route' + (routesCount - 1));
+    }
 }
 
 
