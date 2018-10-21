@@ -21,6 +21,38 @@ map.on('load', function() {
         "source-layer": "Parks",
         "layout": {},
         "paint": {
+            "fill-color": "#9ACD32",
+            "fill-opacity": 1
+        }
+    });
+    
+    
+     map.addLayer({
+        "id": "ltu-vandenys",
+        "type": "fill",
+        "source": {
+            type: 'vector',
+            url: 'mapbox://dainiuskavoliunas.bcba50c5'
+        },
+        "source-layer": "vandenys",
+        "layout": {},
+        "paint": {
+            "fill-color": "#0000CD",
+            "fill-opacity": 1
+        }
+    });
+    
+    
+    map.addLayer({
+        "id": "ltu-miskai",
+        "type": "fill",
+        "source": {
+            type: 'vector',
+            url: 'mapbox://dainiuskavoliunas.72188b78'
+        },
+        "source-layer": "miskai3",
+        "layout": {},
+        "paint": {
             "fill-color": "#228B22",
             "fill-opacity": 1
         }
