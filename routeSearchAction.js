@@ -80,7 +80,16 @@ function routeSearch(){
         $(loader).toggle();
         return response.json()
     })
-    .then(data => processResponse(data));
+    .then(data => processResponse(data))
+    .catch(function(){
+        alert("Error");
+        hideDownloadBtn();
+        cleanRoutes();
+        $(btn).show();
+        $(loader).hide();
+        routesCount=0;
+        oldData = null;
+    });
 }
 
 
