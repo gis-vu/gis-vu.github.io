@@ -23,6 +23,12 @@ function routeSearch(){
     var seriousRouteValue = $('#seriousRouteValue')[0].value;
     var routeOverlapValue = $('#routeOverlapValue')[0].value;
     
+    var forrestValue = $('#forrestValue')[0].value;
+    var waterDistanceValue = $('#waterDistanceValue')[0].value;
+    var waterValue = $('#waterValue')[0].value;
+
+    
+    
     var request = 
         {
             'start':startMarker.getLngLat(),
@@ -30,6 +36,10 @@ function routeSearch(){
             'point':pointMarkerCoordinates,
             'searchOptions':{
                 'trackOverlapImportance':routeOverlapValue,
+                'propertyValueImportance':[
+                    {"property":"distance_to_forrest", "threshold":0,"importance":forrestValue},
+                    {"property":"distance_to_water", "threshold":waterDistanceValue,"importance":waterValue},
+                ],
                 'propertyImportance':[
                     {"property": "fclass","value": "bridleway","importance":pathValue},
                     {"property": "fclass","value": "cycleway","importance":pathValue},

@@ -49,8 +49,7 @@ body { margin:0; padding:0; }
 
 #settings{
     position: absolute;
-    width: 500px;
-    height: 500px;
+/*    width: 500px;*/
     background: #C0C0C0;
     opacity: 0.95;
     margin: 10px;
@@ -60,23 +59,21 @@ body { margin:0; padding:0; }
 
 #downloadBox{
     position: absolute;
-    width: 500px;
-    height: 500px;
     background: #C0C0C0;
     opacity: 0.95;
     margin: 10px;
     display: none;
     padding: 10px;
+    height: 500px;
 }
 
 .close{
     text-align: right;
     padding: 10px;
-    margin-left: 5px;
-    margin-left: 455px;
     font-size: 30px;
     background: white;
     cursor: pointer;
+    width: 20px;
 }
 
 .settingsBtn{
@@ -98,7 +95,7 @@ body { margin:0; padding:0; }
 }
 
 .infoBox {
-    height: 700px;
+
     width: 150px;
     position: absolute;
     top: 20px;
