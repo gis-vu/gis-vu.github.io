@@ -3,11 +3,14 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGFpbml1c2thdm9saXVuYXMiLCJhIjoiY2ptbHNrd2d0M
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/dainiuskavoliunas/cjmokl18u00q32sljbeffo8k7',
-    center: [23.897, 55.322],
-    zoom: 7
+    center: [25.2797, 54.6872],
+    zoom: 12
 });
 
-map.on("contextmenu", contextClicked);
+$( document ).ready(function() {
+    map.on("contextmenu", contextClicked);
+});
+
 
 map.on('load', function() {
 
