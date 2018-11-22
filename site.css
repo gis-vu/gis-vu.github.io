@@ -162,6 +162,17 @@ body { margin:0; padding:0; }
     text-align: center;
     background-color: #C0C0C0;
     cursor: pointer;
+    height: 20px;
+    margin-top: 5px;
+}
+
+.parent{
+    margin-top: 25px;
+    border-width: 1px;
+    border-color: black;
+    padding: 2px;
+    padding-top: 20px;
+    border-style: dotted;
 }
 
 .pointMarker:before  {

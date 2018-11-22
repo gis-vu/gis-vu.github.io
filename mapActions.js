@@ -59,12 +59,28 @@ function setRouteStart(){
 
 function setRoutePoint(){
     
+    setRoute("pointMarker");
+    
+    var el = document.createElement('div');
+    el.className = "pointMarker";
+
+    var span = document.createElement('span');
+    span.className = "number";
+    $(span).text(countMarkerWithClass("pointMarker"))
+
+    el.appendChild(span);
     
     
-     setRoute("pointMarker");
+    var parent = document.createElement('div');
+    parent.className="parent";
+    var removeBtn = document.createElement('div');
+    removeBtn.className='removeBtn';
+    $(removeBtn).text("Pašalinti");
+    parent.appendChild(el);
+    parent.appendChild(removeBtn);
     
     
-    
+    $('#pointMarkers').append(parent);
 }
 
 
