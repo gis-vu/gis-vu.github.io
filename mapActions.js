@@ -25,7 +25,7 @@ function contextClicked(e) {
     markers.push(marker);
     
     
-    var contextMenu = $.parseHTML("<div class='contextMenu'><input type=\"button\" value=\"Mar\u0161ruto prad\u017Eia\" onclick=\"setRouteStart()\" class=\"startBtn\"><input type=\"button\" value=\"Aplankytas taškas\" onclick=\"setRoutePoint()\" class=\"pointBtn\"><input type=\"button\" value=\"Mar\u0161ruto pabaiga\" onclick=\"setRouteEnd()\" class=\"endBtn\"><\/div>");
+    var contextMenu = $.parseHTML("<div class='contextMenu'><input type=\"button\" value=\"Mar\u0161ruto prad\u017Eia\" onclick=\"setRouteStart()\" class=\"startBtn\"><input type=\"button\" value=\"Tarpinis taškas\" onclick=\"setRoutePoint()\" class=\"pointBtn\"><input type=\"button\" value=\"Mar\u0161ruto pabaiga\" onclick=\"setRouteEnd()\" class=\"endBtn\"><\/div>");
     
     
     marker = new mapboxgl.Marker(contextMenu[0])

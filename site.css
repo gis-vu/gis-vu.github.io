@@ -156,7 +156,14 @@ body { margin:0; padding:0; }
   background: #5D76CB;
 }
 
-.pointMarker:after  {
+.removeBtn{
+    font-size: 15px;
+    padding: 2px;
+    text-align: center;
+    background-color: #C0C0C0;
+}
+
+.pointMarker:before  {
   content: "";
   width: 14px;
   height: 14px;
@@ -164,6 +171,12 @@ body { margin:0; padding:0; }
   background: white;
   position: absolute;
   border-radius: 50%;
+}
+
+.number{
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 7px;
 }
 
 .tempMarker{
