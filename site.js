@@ -5,7 +5,7 @@ var url = '';
 if(dev){
     url='http://localhost:5000/api/route';
 }else{
-    url = 'https://gis-vu-api.azurewebsites.net/api/route';
+    url = 'https://gis-vu-2.azurewebsites.net/api/route';
 }
 
 function loadScript (url) {

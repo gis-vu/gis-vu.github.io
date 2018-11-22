@@ -13,9 +13,10 @@ function routeSearch(){
     var pointMarker = findMarkerWithClass('pointMarker');
     
     var pointMarkerCoordinates = null;
+    var points = [];
     
     if(pointMarker!=null)
-        pointMarkerCoordinates = pointMarker.getLngLat();
+        points.push(pointMarker.getLngLat());
     
     var pathValue = $('#pathValue')[0].value;
     var walkingPathValue = $('#walkingPathValue')[0].value;
@@ -33,7 +34,7 @@ function routeSearch(){
         {
             'start':startMarker.getLngLat(),
             'end':endMarker.getLngLat(),
-            'point':pointMarkerCoordinates,
+            'points':points,
             'searchOptions':{
                 'trackOverlapImportance':routeOverlapValue,
                 'propertyValueImportance':[
