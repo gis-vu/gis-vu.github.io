@@ -161,6 +161,7 @@ body { margin:0; padding:0; }
     padding: 2px;
     text-align: center;
     background-color: #C0C0C0;
+    cursor: pointer;
 }
 
 .pointMarker:before  {
@@ -185,11 +186,32 @@ body { margin:0; padding:0; }
   width: 30px;
   height: 30px;
   border-radius: 50% 50% 50% 0;
-  background: #5D76CB;
+  background: gray;
 /*  margin: 10px;*/
 }
 
 .tempMarker:after  {
+  content: "";
+  width: 14px;
+  height: 14px;
+  margin: 8px 0 0 8px;
+  background: white;
+  position: absolute;
+  border-radius: 50%;
+}
+
+
+.extraMarker{
+  margin-top: -15px;  
+  margin-left: 15px;  
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  background: #5D76CB;
+/*  margin: 10px;*/
+}
+
+.extraMarker:after  {
   content: "";
   width: 14px;
   height: 14px;

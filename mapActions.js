@@ -58,15 +58,23 @@ function setRouteStart(){
 }
 
 function setRoutePoint(){
+    
+    
+    
      setRoute("pointMarker");
+    
+    
+    
 }
 
 
 function setRoute(className){
     var marker = findMarkerWithClass(className);
     
-    if(marker != null) marker.remove();
-    removeMarkerFromArray(className);
+    if(marker != null && className != 'pointMarker'){
+        marker.remove();
+        removeMarkerFromArray(className);
+    } 
     
     var tempMarker = findMarkerWithClass("tempMarker");
 
@@ -79,7 +87,6 @@ function setRoute(className){
    
     if(findMarkerWithClass('startMarker')!=null) setAsSelected("startMarker");
     if(findMarkerWithClass('endMarker')!=null) setAsSelected("endMarker");
-    if(findMarkerWithClass('pointMarker')!=null) setAsSelected("pointMarker");
     
     if($(".searchBtn").prop('disabled')){
         var startMarker = findMarkerWithClass("startMarker");
@@ -103,6 +110,14 @@ function createMarker(className, coordinates){
     var el = document.createElement('div');
     el.className = className;
 
+    if(className == 'pointMarker'){
+        var span = document.createElement('span');
+        span.className = "number";
+        $(span).text(countMarkerWithClass("pointMarker") + 1)
+        
+        el.appendChild(span);
+    }
+    
     var marker = new mapboxgl.Marker(el)
         .setLngLat(coordinates)
         .addTo(map);
@@ -120,6 +135,19 @@ function findMarkerWithClass(className) {
        }
     }
     return null; // The object was not found
+}
+
+function countMarkerWithClass(className) {
+    var count = 0;
+    
+    for (var i = 0, len = markers.length; i < len; i++) {
+       if (markers[i].getElement().className.startsWith(className)){
+            //console.log(markers[i].getElement().className[0]);
+            count ++; // Return as soon as the object is found
+
+       }
+    }
+    return count; // The object was not found
 }
 
 function removeMarkerFromArray(markerClass){
