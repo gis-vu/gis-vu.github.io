@@ -61,28 +61,75 @@ function setRoutePoint(){
     
     setRoute("pointMarker");
     
+    var pointerIndex = countMarkerWithClass("pointMarker");
+    
     var el = document.createElement('div');
     el.className = "pointMarker";
 
     var span = document.createElement('span');
     span.className = "number";
-    $(span).text(countMarkerWithClass("pointMarker"))
+    $(span).text(pointerIndex)
 
     el.appendChild(span);
     
     
     var parent = document.createElement('div');
+    parent.setAttribute('id', 'parent_' + pointerIndex);
+
     parent.className="parent";
     var removeBtn = document.createElement('div');
     removeBtn.className='removeBtn';
     $(removeBtn).text("Pašalinti");
     parent.appendChild(el);
     parent.appendChild(removeBtn);
+    removeBtn.setAttribute('id', pointerIndex);
+    removeBtn.addEventListener("click", removePointer);
     
     
     $('#pointMarkers').append(parent);
 }
 
+function removePointer(e){
+//    alert(e.target.id);
+    
+    var pointerCount = countMarkerWithClass("pointMarker");
+    
+    var element = $('#parent_' + e.target.id);
+    element.remove();
+    
+    var allPointMarkers = findMarkersWithClass("pointMarker");
+    var markerToRemove = allPointMarkers[parseInt(e.target.id) - 1];
+    markerToRemove.remove();
+    var index = markers.indexOf(markerToRemove);
+    if (index > -1) {
+      markers.splice(index, 1);
+    }  
+    
+    
+    allPointMarkers = findMarkersWithClass("pointMarker");
+    
+    for(var i = parseInt(e.target.id); i < pointerCount; i++){
+        var child = allPointMarkers[i - 1].getElement().childNodes[0];
+        var value = parseInt($(child).text());
+        $(child).text(value - 1);
+        
+        var element = $('#parent_' + (i + 1))[0];  
+        var child2 = $(element.childNodes[0].childNodes[0]).text(value - 1);    
+      
+        element.setAttribute('id', 'parent_' + (value - 1));
+        element.childNodes[1].setAttribute('id', (value - 1));
+    }
+    
+    
+    
+   
+    
+    
+    
+    
+
+    
+}
 
 function setRoute(className){
     var marker = findMarkerWithClass(className);
@@ -151,6 +198,19 @@ function findMarkerWithClass(className) {
        }
     }
     return null; // The object was not found
+}
+
+function findMarkersWithClass(className) {
+    var markersToReturn = [];
+    
+    for (var i = 0, len = markers.length; i < len; i++) {
+       if (markers[i].getElement().className.startsWith(className)){
+            //console.log(markers[i].getElement().className[0]);
+            markersToReturn.push(markers[i]); // Return as soon as the object is found
+
+       }
+    }
+    return markersToReturn; // The object was not found
 }
 
 function countMarkerWithClass(className) {
