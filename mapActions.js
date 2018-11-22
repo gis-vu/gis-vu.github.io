@@ -1,5 +1,16 @@
 var markers = [];
 
+function removeContext(e) {
+    var contextMenu = findMarkerWithClass("contextMenu");
+    var tempMarker = findMarkerWithClass("tempMarker");
+    
+    if(contextMenu != null)
+        contextMenu.remove();
+    
+     if(tempMarker != null)
+        tempMarker.remove();
+}
+
 function contextClicked(e) {
     
     cleanTempMarkers();
