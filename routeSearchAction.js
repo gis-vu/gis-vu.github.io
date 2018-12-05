@@ -10,13 +10,16 @@ function routeSearch(){
     
     var startMarker = findMarkerWithClass('startMarker');
     var endMarker = findMarkerWithClass('endMarker');
-    var pointMarker = findMarkerWithClass('pointMarker');
+    var pointMarker = findMarkersWithClass('pointMarker');
     
     var pointMarkerCoordinates = null;
     var points = [];
     
-    if(pointMarker!=null)
-        points.push(pointMarker.getLngLat());
+    if(pointMarker.length != 0){
+      for(var i =0; i < pointMarker.length; i++){
+          points.push(pointMarker[i].getLngLat());
+      }        
+    }
     
     var pathValue = $('#pathValue')[0].value;
     var walkingPathValue = $('#walkingPathValue')[0].value;
@@ -151,7 +154,7 @@ function addRoute (route, i) {
       },
       "paint": {
         "line-color": colors[i],
-        "line-width": 8,
+        "line-width": 1,
         "line-opacity": 1
       }
     });

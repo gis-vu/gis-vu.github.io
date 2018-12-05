@@ -12,21 +12,21 @@ $( document ).ready(function() {
     map.on("click", removeContext);
 });
 
-map.on('load', function() {
-        map.addLayer({
-        "id": "region",
-        "type": "line",
-        "source": {
-            type: 'vector',
-            url: 'mapbox://dainiuskavoliunas.60891b69'
-        },
-        "source-layer": "apsk",
-        "layout": {},
-        "paint": {
-            "line-color": "#9ACD32",
-            "line-width": 3
-        }
-    });
-});
+//map.on('load', function() {
+//        map.addLayer({
+//        "id": "region",
+//        "type": "line",
+//        "source": {
+//            type: 'vector',
+//            url: 'mapbox://dainiuskavoliunas.60891b69'
+//        },
+//        "source-layer": "apsk",
+//        "layout": {},
+//        "paint": {
+//            "line-color": "#9ACD32",
+//            "line-width": 3
+//        }
+//    });
+//});
 
 //# sourceURL=initializeMap.js
