@@ -93,33 +93,70 @@ function setPolygonPoint(){
   
     setRoute("polygonMarker");
     
-//    var pointerIndex = countMarkerWithClass("polygonMarker");
-//    
-//    var el = document.createElement('div');
-//    el.className = "polygonMarker";
-////
-//    var span = document.createElement('span');
-//    span.className = "number";
-//    $(span).text(pointerIndex)
-//
-//    el.appendChild(span);
-//    
-//    
-//    var parent = document.createElement('div');
-//    parent.setAttribute('id', 'parentPolygon_' + pointerIndex);
-//
-//    parent.className="parent";
-//    var removeBtn = document.createElement('div');
-//    removeBtn.className='removeBtn';
-//    $(removeBtn).text("Pašalinti");
-//    parent.appendChild(el);
-//    parent.appendChild(removeBtn);
-//    removeBtn.setAttribute('id', pointerIndex);
-//    removeBtn.addEventListener("click", removePointer);
-//    
-//    
-//    $('#pointMarkers').append(parent);
+    var pointerIndex = countMarkerWithClass("polygonMarker");
+    
+    var el = document.createElement('div');
+    el.className = "polygonMarker";
+
+    var span = document.createElement('span');
+    span.className = "number";
+    $(span).text(pointerIndex)
+
+    el.appendChild(span);
+    
+    
+    var parent = document.createElement('div');
+    parent.setAttribute('id', 'parentPolygon_' + pointerIndex);
+
+    parent.className="parent";
+    var removeBtn = document.createElement('div');
+    removeBtn.className='removeBtn';
+    $(removeBtn).text("Pašalinti");
+    parent.appendChild(el);
+    parent.appendChild(removeBtn);
+    removeBtn.setAttribute('id', pointerIndex);
+    removeBtn.addEventListener("click", removePolygon);
+    
+    
+    $('#polygonMarkers').append(parent);
 }
+
+
+
+function removePolygon(e){
+//    alert(e.target.id);
+    
+    var pointerCount = countMarkerWithClass("polygonMarker");
+    
+    var element = $('#parentPolygon_' + e.target.id);
+    element.remove();
+    
+    var allPointMarkers = findMarkersWithClass("polygonMarker");
+    var markerToRemove = allPointMarkers[parseInt(e.target.id) - 1];
+    markerToRemove.remove();
+    var index = markers.indexOf(markerToRemove);
+    if (index > -1) {
+      markers.splice(index, 1);
+    }  
+    
+    
+    allPointMarkers = findMarkersWithClass("polygonMarker");
+    
+    for(var i = parseInt(e.target.id); i < pointerCount; i++){
+        var child = allPointMarkers[i - 1].getElement().childNodes[0];
+        var value = parseInt($(child).text());
+        $(child).text(value - 1);
+        
+        var element = $('#parentPolygon_' + (i + 1))[0];  
+        var child2 = $(element.childNodes[0].childNodes[0]).text(value - 1);    
+      
+        element.setAttribute('id', 'parentPolygon_' + (value - 1));
+        element.childNodes[1].setAttribute('id', (value - 1));
+    }
+    
+}
+
+
 
 function removePointer(e){
 //    alert(e.target.id);
@@ -151,16 +188,7 @@ function removePointer(e){
         element.setAttribute('id', 'parent_' + (value - 1));
         element.childNodes[1].setAttribute('id', (value - 1));
     }
-    
-    
-    
-   
-    
-    
-    
-    
-
-    
+        
 }
 
 function setRoute(className){
