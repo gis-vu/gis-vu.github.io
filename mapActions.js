@@ -25,7 +25,7 @@ function contextClicked(e) {
     markers.push(marker);
     
     
-    var contextMenu = $.parseHTML("<div class='contextMenu'><input type=\"button\" value=\"Mar\u0161ruto prad\u017Eia\" onclick=\"setRouteStart()\" class=\"startBtn\"><input type=\"button\" value=\"Tarpinis taškas\" onclick=\"setRoutePoint()\" class=\"pointBtn\"><input type=\"button\" value=\"Mar\u0161ruto pabaiga\" onclick=\"setRouteEnd()\" class=\"endBtn\"><\/div>");
+    var contextMenu = $.parseHTML("<div class='contextMenu'><input type=\"button\" value=\"Mar\u0161ruto prad\u017Eia\" onclick=\"setRouteStart()\" class=\"startBtn\"><input type=\"button\" value=\"Tarpinis taškas\" onclick=\"setRoutePoint()\" class=\"pointBtn\"><input type=\"button\" value=\"Mar\u0161ruto pabaiga\" onclick=\"setRouteEnd()\" class=\"endBtn\"><hr><input type=\"button\" value=\"Duomenų riboklis\" onclick=\"setPolygonPoint()\" class=\"polygonPointBtn\"><\/div>");
     
     
     marker = new mapboxgl.Marker(contextMenu[0])
@@ -89,6 +89,38 @@ function setRoutePoint(){
     $('#pointMarkers').append(parent);
 }
 
+function setPolygonPoint(){
+  
+    setRoute("polygonMarker");
+    
+//    var pointerIndex = countMarkerWithClass("polygonMarker");
+//    
+//    var el = document.createElement('div');
+//    el.className = "polygonMarker";
+////
+//    var span = document.createElement('span');
+//    span.className = "number";
+//    $(span).text(pointerIndex)
+//
+//    el.appendChild(span);
+//    
+//    
+//    var parent = document.createElement('div');
+//    parent.setAttribute('id', 'parentPolygon_' + pointerIndex);
+//
+//    parent.className="parent";
+//    var removeBtn = document.createElement('div');
+//    removeBtn.className='removeBtn';
+//    $(removeBtn).text("Pašalinti");
+//    parent.appendChild(el);
+//    parent.appendChild(removeBtn);
+//    removeBtn.setAttribute('id', pointerIndex);
+//    removeBtn.addEventListener("click", removePointer);
+//    
+//    
+//    $('#pointMarkers').append(parent);
+}
+
 function removePointer(e){
 //    alert(e.target.id);
     
@@ -134,7 +166,7 @@ function removePointer(e){
 function setRoute(className){
     var marker = findMarkerWithClass(className);
     
-    if(marker != null && className != 'pointMarker'){
+    if(marker != null && className != 'pointMarker' && className != 'polygonMarker'){
         marker.remove();
         removeMarkerFromArray(className);
     } 
@@ -177,6 +209,14 @@ function createMarker(className, coordinates){
         var span = document.createElement('span');
         span.className = "number";
         $(span).text(countMarkerWithClass("pointMarker") + 1)
+        
+        el.appendChild(span);
+    }
+    
+    if(className == 'polygonMarker'){
+        var span = document.createElement('span');
+        span.className = "number";
+        $(span).text(countMarkerWithClass("polygonMarker") + 1)
         
         el.appendChild(span);
     }

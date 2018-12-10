@@ -156,6 +156,16 @@ body { margin:0; padding:0; }
   background: #5D76CB;
 }
 
+.polygonMarker{
+  margin-top: -15px;  
+  margin-left: 15px; 
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  background: #ff4c4c;
+}
+
+
 .removeBtn{
     font-size: 15px;
     padding: 2px;
@@ -176,6 +186,16 @@ body { margin:0; padding:0; }
 }
 
 .pointMarker:before  {
+  content: "";
+  width: 14px;
+  height: 14px;
+  margin: 8px 0 0 8px;
+  background: white;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.polygonMarker:before{
   content: "";
   width: 14px;
   height: 14px;
@@ -245,6 +265,12 @@ body { margin:0; padding:0; }
 .pointBtn{
     font-size: 16px;
     background: #5D76CB;
+}
+
+
+.polygonPointBtn{
+    font-size: 16px;
+    background: #ff4c4c;
 }
 
 .endBtn{
