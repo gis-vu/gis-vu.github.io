@@ -119,9 +119,68 @@ function setPolygonPoint(){
     
     
     $('#polygonMarkers').append(parent);
+    
+    
+    
+    redrawPolygon();
+}
+
+function redrawPolygon(){
+    var allPolygonMarkers = findMarkersWithClass("polygonMarker");
+    
+//    alert(allPolygonMarkers.length);
+    
+    var coordinates = [];
+    
+    for(var i = 0; i < allPolygonMarkers.length; i++){
+        
+        var c = allPolygonMarkers[i].getLngLat();
+        var cc = [];
+        
+        cc.push(c.lng);
+        cc.push(c.lat);
+        
+        coordinates.push(cc);
+    }
+    
+    coordinates.push(coordinates[0]);
+    
+    if (map.getSource('polygon')) {
+            map.removeLayer('polygon')
+            map.removeSource('polygon')
+        }
+        
+     map.addLayer({
+      "id": "polygon",
+      "type": "line",
+      "source": {
+        "type": "geojson",
+        "data": {
+          "type": "Feature",
+          "properties": {},
+          "geometry": coordinatesToJson(coordinates)
+        }
+      },
+      "layout": {
+        "line-join": "round",
+        "line-cap": "round"
+      },
+      "paint": {
+        "line-color": '#ff4c4c',
+        "line-width": 1,
+        "line-opacity": 1
+      }
+    });
+    
 }
 
 
+function coordinatesToJson(coordinates){
+    return {
+        "type": "LineString",
+        "coordinates": coordinates
+    }
+}
 
 function removePolygon(e){
 //    alert(e.target.id);
@@ -153,6 +212,8 @@ function removePolygon(e){
         element.setAttribute('id', 'parentPolygon_' + (value - 1));
         element.childNodes[1].setAttribute('id', (value - 1));
     }
+    
+    redrawPolygon();
     
 }
 
