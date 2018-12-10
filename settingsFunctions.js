@@ -3,12 +3,25 @@ function invertSettings(){
 }
 
 function invertDownloadBox(){
-    $('#downloadBox').toggle();
+//    $('#downloadBox').toggle();
+    
+     downloadRouteIndex(0); 
 }
 
 
 function showDownloadBtn(){
     $('.downloadBtn').show();
+    
+   
+}
+
+function downloadRouteIndex(index){
+         
+    var data = oldData.routes[index];  
+    
+    var kml = tokml(data.data);
+    
+    download('route' + index + '.kml', kml);
 }
 
 function hideDownloadBtn(){
