@@ -94,6 +94,20 @@ body { margin:0; padding:0; }
     display: none;
 }
 
+.infoBox2 {
+
+    width: 150px;
+    position: absolute;
+    top: 20px;
+    left: 210px;
+    background-color: rgba(255, 255, 255, .9);
+    text-align: left;
+    font-family: 'Arial';
+    margin: 0;
+    font-size: 13px;
+  }
+
+
 .infoBox {
 
     width: 150px;
@@ -178,6 +192,15 @@ body { margin:0; padding:0; }
 
 .parent{
     margin-top: 5px;
+    border-width: 1px;
+    border-color: black;
+    padding: 2px;
+    padding-top: 20px;
+    border-style: dotted;
+}
+
+.parent2{
+    margin: 10px;
     border-width: 1px;
     border-color: black;
     padding: 2px;

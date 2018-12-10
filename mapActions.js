@@ -108,7 +108,7 @@ function setPolygonPoint(){
     var parent = document.createElement('div');
     parent.setAttribute('id', 'parentPolygon_' + pointerIndex);
 
-    parent.className="parent";
+    parent.className="parent2";
     var removeBtn = document.createElement('div');
     removeBtn.className='removeBtn';
     $(removeBtn).text("Pašalinti");

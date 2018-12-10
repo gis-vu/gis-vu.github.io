@@ -12,6 +12,10 @@
    <body>
       <div id='map'></div>
 
+       <div class='infoBox2'>
+            <div id="polygonMarkers"></div>
+       </div>
+       
       <div class='infoBox'>
           <div class="settingsBtn" onclick="invertSettings()">Nustatymai</div>
           <div class="startMarker" style="margin: 10px"></div>
@@ -33,7 +37,7 @@
           <p class="endMarkerNotSelected">Nepasirinktas</p>
           <p class="endMarkerSelected">Pasirinktas</p>
           
-          <div id="polygonMarkers"></div>
+          
           
           <input class="searchBtn" type='button' value="Ieškoti maršruto" disabled onclick="routeSearch()">
           <div class="loader"></div>
