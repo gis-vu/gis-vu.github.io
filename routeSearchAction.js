@@ -84,28 +84,37 @@ function routeSearch(){
             }
         }
         
+    var f = false;
+    
     fetch(url, {
         method: "POST", 
         headers: {"Content-Type": "application/json; charset=utf-8"}, 
         body: JSON.stringify(request),
     })
     .then(response => {
-        $(btn).toggle();
-        $(loader).toggle();
-        
         return response.json();
     })
     .then(data => {
         
-        if(data.statusCode != 200)
+        if(data.statusCode != 200){
+            f=true;
             throw Error(data.message);
+
+        }
         
         return data;
     })
-    .then(data => processResponse(data))
-    .catch(function(e, z){
+    .then(data => {
+            $(btn).toggle();
+            $(loader).toggle();
+            processResponse(data)
+    })
+    .catch(function(e){
         
-        alert("Susisiekite su administratoriumi arba bandykite vėliau");
+        if(!f)
+            alert("Susisiekite su administratoriumi arba bandykite vėliau");
+        else
+            alert(e.message);
         
         hideDownloadBtn();
         cleanRoutes();
