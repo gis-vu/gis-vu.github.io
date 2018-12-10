@@ -26,7 +26,9 @@ function routeSearch(){
     if(polygonMarker.length != 0){
       for(var i =0; i < polygonMarker.length; i++){
           polygonPoints.push(polygonMarker[i].getLngLat());
-      }        
+      }
+        
+      polygonPoints.push(polygonPoints[0]);    
     }
     
     
