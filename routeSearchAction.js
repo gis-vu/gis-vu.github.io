@@ -11,8 +11,8 @@ function routeSearch(){
     var startMarker = findMarkerWithClass('startMarker');
     var endMarker = findMarkerWithClass('endMarker');
     var pointMarker = findMarkersWithClass('pointMarker');
+    var polygonMarker = findMarkersWithClass('polygontMarker');
     
-    var pointMarkerCoordinates = null;
     var points = [];
     
     if(pointMarker.length != 0){
@@ -20,6 +20,15 @@ function routeSearch(){
           points.push(pointMarker[i].getLngLat());
       }        
     }
+    
+    var polygonPoints = [];
+    
+    if(polygonMarker.length != 0){
+      for(var i =0; i < polygonMarker.length; i++){
+          polygonPoints.push(polygonMarker[i].getLngLat());
+      }        
+    }
+    
     
     var pathValue = $('#pathValue')[0].value;
     var walkingPathValue = $('#walkingPathValue')[0].value;
@@ -31,13 +40,12 @@ function routeSearch(){
     var waterDistanceValue = $('#waterDistanceValue')[0].value;
     var waterValue = $('#waterValue')[0].value;
 
-    
-    
     var request = 
         {
             'start':startMarker.getLngLat(),
             'end':endMarker.getLngLat(),
             'points':points,
+            'polygonPoints': polygonPoints,
             'searchOptions':{
                 'trackOverlapImportance':routeOverlapValue,
                 'propertyValueImportance':[
@@ -82,11 +90,21 @@ function routeSearch(){
     .then(response => {
         $(btn).toggle();
         $(loader).toggle();
-        return response.json()
+        
+        return response.json();
+    })
+    .then(data => {
+        
+        if(data.statusCode != 200)
+            throw Error(data.message);
+        
+        return data;
     })
     .then(data => processResponse(data))
-    .catch(function(){
-        alert("Error");
+    .catch(function(e, z){
+        
+        alert("Susisiekite su administratoriumi arba bandykite vėliau");
+        
         hideDownloadBtn();
         cleanRoutes();
         $(btn).show();
