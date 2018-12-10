@@ -11,7 +11,7 @@ function routeSearch(){
     var startMarker = findMarkerWithClass('startMarker');
     var endMarker = findMarkerWithClass('endMarker');
     var pointMarker = findMarkersWithClass('pointMarker');
-    var polygonMarker = findMarkersWithClass('polygontMarker');
+    var polygonMarker = findMarkersWithClass('polygonMarker');
     
     var points = [];
     
