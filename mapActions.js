@@ -49,12 +49,52 @@ function cleanTempMarkers(){
 };
 
 function setRouteEnd(){
+    
      setRoute("endMarker");
+    
+     var marker = $('#endMarker');
+    
+    if(!marker.is(":visible")){
+        marker.show();
+    }
+    
+        checkIfValidState();
+
 }
 
 
+function checkIfValidState(){
+    
+    return;
+    
+    var startMarker = findMarkerWithClass('startMarker');
+    var endMarker = findMarkerWithClass('endMarker');
+    var polygonMarker = findMarkersWithClass('polygonMarker');
+      
+    
+    if(startMarker != null && endMarker != null && polygonMarker.length >= 3){
+        
+        $(".searchBtn").prop('disabled', false);
+    }
+        
+        
+    else{
+        $(".searchBtn").prop('disabled', true);
+    }    
+}
+
 function setRouteStart(){
     setRoute("startMarker");
+    
+    var marker = $('#startMarker');
+    
+    if(!marker.is(":visible")){
+        marker.show();
+    }
+    
+    
+    
+    checkIfValidState();
 }
 
 function setRoutePoint(){
@@ -123,9 +163,17 @@ function setPolygonPoint(){
     
     
     redrawPolygon();
+    
+    checkIfValidState();
 }
 
 function redrawPolygon(){
+    
+    if (map.getSource('polygon')) {
+            map.removeLayer('polygon')
+            map.removeSource('polygon')
+    }
+    
     var allPolygonMarkers = findMarkersWithClass("polygonMarker");
     
 //    alert(allPolygonMarkers.length);
@@ -143,14 +191,13 @@ function redrawPolygon(){
         coordinates.push(cc);
     }
     
-    coordinates.push(coordinates[0]);
     
-    if (map.getSource('polygon')) {
-            map.removeLayer('polygon')
-            map.removeSource('polygon')
-        }
+    if(coordinates.length == 0)
+        return;
+    
+    coordinates.push(coordinates[0]);
         
-     map.addLayer({
+         map.addLayer({
       "id": "polygon",
       "type": "line",
       "source": {
@@ -171,6 +218,8 @@ function redrawPolygon(){
         "line-opacity": 1
       }
     });
+    
+    
     
 }
 
@@ -215,6 +264,7 @@ function removePolygon(e){
     
     redrawPolygon();
     
+    checkIfValidState();
 }
 
 
@@ -269,19 +319,8 @@ function setRoute(className){
     
     //set in side menu
    
-    if(findMarkerWithClass('startMarker')!=null) setAsSelected("startMarker");
-    if(findMarkerWithClass('endMarker')!=null) setAsSelected("endMarker");
-    
-    if($(".searchBtn").prop('disabled')){
-        var startMarker = findMarkerWithClass("startMarker");
-        var endMarker = findMarkerWithClass("endMarker");
-        
-        
-        if(startMarker != null && endMarker != null){
-            $(".searchBtn").prop('disabled', false);
-        }
-                
-    }
+//    if(findMarkerWithClass('startMarker')!=null) setAsSelected("startMarker");
+//    if(findMarkerWithClass('endMarker')!=null) setAsSelected("endMarker");
 }
 
 function setAsSelected(className){

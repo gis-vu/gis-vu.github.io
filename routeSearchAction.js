@@ -1,12 +1,8 @@
 routesCount = 0;
 
-function routeSearch(){
-    
-    var btn = $('.searchBtn')[0];
-    var loader = $('.loader')[0];
-    
-    $(btn).toggle();
-    $(loader).toggle();
+
+function getRequestData(){
+  
     
     var startMarker = findMarkerWithClass('startMarker');
     var endMarker = findMarkerWithClass('endMarker');
@@ -44,8 +40,8 @@ function routeSearch(){
 
     var request = 
         {
-            'start':startMarker.getLngLat(),
-            'end':endMarker.getLngLat(),
+            'start':startMarker == null ? null : startMarker.getLngLat(),
+            'end':endMarker == null? null: endMarker.getLngLat(),
             'points':points,
             'polygonPoints': polygonPoints,
             'searchOptions':{
@@ -83,6 +79,20 @@ function routeSearch(){
                 ]
             }
         }
+    
+    return request;
+}
+
+function routeSearch(){
+    
+    var btn = $('.searchBtn')[0];
+    var loader = $('.loader')[0];
+    
+    $(btn).toggle();
+    $(loader).toggle();
+    
+    
+    var request = getRequestData();
         
     var f = false;
     

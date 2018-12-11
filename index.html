@@ -6,7 +6,8 @@
       <title>GIS-VU</title>
       <script src='https://api.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.js'></script>
       <link href='https://api.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css' rel='stylesheet' />
-      <link href="site.css" rel="stylesheet"/>       
+      <link href="site.css" rel="stylesheet"/>  
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
    </head>
     
    <body>
@@ -17,10 +18,9 @@
        </div>
        
       <div class='infoBox'>
-          <div class="settingsBtn" onclick="invertSettings()">Nustatymai</div>
-          <div class="startMarker" style="margin: 10px"></div>
-          <p class="startMarkerNotSelected">Nepasirinktas</p>
-          <p class="startMarkerSelected">Pasirinktas</p>
+          <i class="fas fa-cog icon" onclick="requestWindowOpen()"></i>
+          <div class="settingsBtn" onclick="invertSettings()">Paieškos kriterijai</div>
+          <div id='startMarker' class="startMarker" style="margin: 10px;display:none;" ></div>
        
 <!--
           <div>
@@ -33,13 +33,10 @@
           <div id="pointMarkers"></div>
           
           
-          <div class="endMarker" style="margin: 10px"></div>
-          <p class="endMarkerNotSelected">Nepasirinktas</p>
-          <p class="endMarkerSelected">Pasirinktas</p>
+          <div id='endMarker' class="endMarker" style="margin: 10px;display:none;"></div>     
           
           
-          
-          <input class="searchBtn" type='button' value="Ieškoti maršruto" disabled onclick="routeSearch()">
+          <input class="searchBtn" type='button' value="Ieškoti maršruto" onclick="routeSearch()">
           <div class="loader"></div>
           <div id="routeResultBox">
           </div>
@@ -88,8 +85,13 @@
            <p>Koeficientas</p>      
            </div>
 
+       </div>
+       
+       <div id="jsonRequestWindow">
+             <div class="close" onclick="invertRequestWindow()">X</div>
+            <textarea id="requestTextBox">
 
-
+            </textarea>
        </div>
        
        <div id="downloadBox">

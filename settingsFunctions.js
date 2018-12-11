@@ -15,6 +15,20 @@ function showDownloadBtn(){
    
 }
 
+function invertRequestWindow(){
+     $('#jsonRequestWindow').toggle();
+}
+
+function requestWindowOpen(){
+    invertRequestWindow();
+    
+//    alert(JSON.stringify(getRequestData(), null, 4));
+    
+    $("#requestTextBox").text(JSON.stringify(getRequestData(), null, 4));
+    
+    
+}
+
 function downloadRouteIndex(index){
          
     var data = oldData.routes[index];  
