@@ -82,7 +82,7 @@ body { margin:0; padding:0; }
     margin: 10px;
     display: none;
     padding: 10px;
-    height: 500px;
+    height: 540px;
     width: 500px;
 }
 
@@ -189,6 +189,16 @@ body { margin:0; padding:0; }
   background: #5D76CB;
 }
 
+#revertRequestBtn{
+    background: #BCED91;
+    font-size: 20px;
+    width: 50px;
+    padding: 15px;
+    margin:auto;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .polygonMarker{
   margin-top: -15px;  
   margin-left: 15px; 
@@ -202,6 +212,7 @@ body { margin:0; padding:0; }
     font-size: 20px;
     margin: 10px;
     cursor: pointer;
+    
 }
 
 .removeBtn{
