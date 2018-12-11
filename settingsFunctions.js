@@ -30,6 +30,8 @@ function revertRequest(){
     try {
         var request = JSON.parse($("#requestTextBox").val());
         revertRequestHelper(request);
+        
+        invertRequestWindow();
     }
     catch(err) {
       alert(err);
@@ -45,10 +47,10 @@ function revertRequestHelper(request){
     var points = request.points;
    
     
-    var routeOverlapValue = request.searchOptions.trackOverlapImportance;
-    var forrestValue = request.searchOptions.propertyValueImportance[0].importance;
-    var waterValue = request.searchOptions.propertyValueImportance[1].importance;
-    var waterDistanceValue = request.searchOptions.propertyValueImportance[1].threshold;
+    var routeOverlapValue = Number(request.searchOptions.trackOverlapImportance);
+    var forrestValue = Number(request.searchOptions.propertyValueImportance[0].importance);
+    var waterValue = Number(request.searchOptions.propertyValueImportance[1].importance);
+    var waterDistanceValue = Number(request.searchOptions.propertyValueImportance[1].threshold);
     
     var pathValue = Number(request.searchOptions.propertyImportance[0].importance);
     var walkingPathValue = Number(request.searchOptions.propertyImportance[3].importance);
@@ -59,20 +61,20 @@ function revertRequestHelper(request){
     if(isNaN(pathValue) || isNaN(walkingPathValue) || isNaN(routeValue) || isNaN(seriousRouteValue))
         throw "Kelio tipo koeficientai įvesti klaidingai";
 
+     if(isNaN(routeOverlapValue) || isNaN(forrestValue) || isNaN(waterValue) || isNaN(waterDistanceValue))
+    throw "Miškų arba vandenų koeficientai įvesti klaidingai";
+    
+    
     $('#pathValue').val(pathValue);
     $('#walkingPathValue').val(walkingPathValue);
     $('#routeValue').val(routeValue);
     $('#seriousRouteValue').val(seriousRouteValue);
     
-
-//    var routeOverlapValue = $('#routeOverlapValue')[0].value;
-//    
-//    var forrestValue = $('#forrestValue')[0].value;
-//    var waterDistanceValue = $('#waterDistanceValue')[0].value;
-//    var waterValue = $('#waterValue')[0].value;
-
     
-    
+    $('#routeOverlapValue').val(routeOverlapValue);
+    $('#forrestValue').val(forrestValue);
+    $('#waterValue').val(waterValue);
+    $('#waterDistanceValue').val(waterDistanceValue);
 }
 
 
