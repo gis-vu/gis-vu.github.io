@@ -120,6 +120,36 @@ function revertRequestHelper(request){
         
         setRoutePoint();
     }    
+    
+    
+    
+//    if(findMarkerWithClass('endMarker')!=null) setAsSelected("endMarker");
+    
+    var oldStartMarker = findMarkerWithClass('startMarker');
+    
+    if(oldStartMarker !=null){
+        oldStartMarker.remove();
+    }
+    
+    if(startPoint != null){
+        createTempMarker(startPoint);
+        
+        setRouteStart();
+    }
+    
+    
+     var oldEndMarker = findMarkerWithClass('endMarker');
+    
+    if(oldEndMarker !=null){
+        oldEndMarker.remove();
+    }
+    
+    if(endPoint != null){
+        createTempMarker(endPoint);
+        
+        setRouteEnd();
+    }
+
 }
 
 
