@@ -127,11 +127,46 @@ body { margin:0; padding:0; }
   }
 
 
+.mapStyle{
+    align-content: center;
+/*    background: gray;*/
+}
+
+.mapStyle img {
+    width: 70px;
+        margin: 3px;
+  opacity: 0.7;
+     border-style: solid;
+    border-color: #C0C0C0;
+/*  border-width: px;*/
+    cursor: pointer;
+}
+
+.selected img{
+    border-color: #ff9999;
+  opacity: 1;
+}
+
+
+#menu {
+    column-count: 2;
+    width: 180px;
+    position: absolute;
+    left: 10px;
+/*    background-color: rgba(255, 255, 255, .9);*/
+    text-align: left;
+    font-family: 'Arial';
+    margin: 0;
+    font-size: 13px;
+        display: inline;
+
+  }
+
 .infoBox {
 
     width: 150px;
     position: absolute;
-    top: 20px;
+    top: 90px;
     left: 10px;
     background-color: rgba(255, 255, 255, .9);
     padding: 15px;

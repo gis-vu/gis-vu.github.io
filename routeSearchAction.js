@@ -130,21 +130,22 @@ function routeSearch(){
         cleanRoutes();
         $(btn).show();
         $(loader).hide();
-        oldData = null;
     });
 }
 
 
 function processResponse(data){
     
+    cleanRoutes();
+    
     oldData = data;
     
-    cleanRoutes();
     routesCount = data.routes.length;
     
     var i = 0;
         data.routes.forEach(function(element) {
           addRoute(element, i);
+          addRouteInfo(colors[i], i, element.info.length);
             i++;
         });
    
@@ -172,11 +173,12 @@ function cleanRoutes(){
     $('#routeResultBox2').empty();
     
     routesCount = 0;
+    
+    oldData = null;
 }
 
 function addRoute (route, i) {
-  var colors = ['#e6194b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe'];
-    
+  
     map.addLayer({
       "id": "route" + i,
       "type": "line",
@@ -198,8 +200,6 @@ function addRoute (route, i) {
         "line-opacity": 1
       }
     });
-  
-    addRouteInfo(colors[i], i, route.info.length);
 }
 
 function addRouteInfo(color, index, info){
