@@ -82,6 +82,8 @@ function setRouteEnd(){
 
 function checkIfValidState(){
     
+    cleanRoutes();
+    
     return;
     
     var startMarker = findMarkerWithClass('startMarker');
@@ -115,6 +117,8 @@ function setRouteStart(){
 }
 
 function setRoutePoint(){
+    
+    cleanRoutes();
     
     setRoute("pointMarker");
     
@@ -327,6 +331,8 @@ function removePointerHelper(id){
 }
 
 function removePointer(e){
+    
+     cleanRoutes();
     
     var id = e.target.id;
     

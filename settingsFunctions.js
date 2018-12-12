@@ -149,6 +149,8 @@ function revertRequestHelper(request){
         
         setRouteEnd();
     }
+    
+    cleanRoutes();
 
 }
 

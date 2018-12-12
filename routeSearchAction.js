@@ -130,7 +130,6 @@ function routeSearch(){
         cleanRoutes();
         $(btn).show();
         $(loader).hide();
-        routesCount=0;
         oldData = null;
     });
 }
@@ -171,6 +170,8 @@ function cleanRoutes(){
     
     $('#routeResultBox').empty();
     $('#routeResultBox2').empty();
+    
+    routesCount = 0;
 }
 
 function addRoute (route, i) {
