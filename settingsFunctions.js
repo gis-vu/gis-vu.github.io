@@ -75,6 +75,51 @@ function revertRequestHelper(request){
     $('#forrestValue').val(forrestValue);
     $('#waterValue').val(waterValue);
     $('#waterDistanceValue').val(waterDistanceValue);
+    
+    
+    var allPoints = polygonPoints.concat(points);
+    
+    if(startPoint!=null)
+        allPoints.push(startPoint);
+    
+    if(endPoint!=null)
+        allPoints.push(endPoint);
+    
+    allPoints.forEach(function(p) {
+        var a = Number(p.lng);
+        var b = Number(p.lat);
+
+        if(isNaN(a) || isNaN(b))
+                throw "Taškų duomenys įvesti klaidingai";
+    });
+    
+    
+    
+    var oldPolygonMarkers = findMarkersWithClass('polygonMarker');
+    
+    for(var i =0; i< oldPolygonMarkers.length; i++){
+        removePolygonHelper(1); 
+    }
+    
+    
+    for(var i =0; i< polygonPoints.length - 1; i++){
+        createTempMarker(polygonPoints[i]);
+        
+        setPolygonPoint();
+    }    
+    
+    
+    var oldPointMarkers = findMarkersWithClass('pointMarker');
+
+    for(var i =0; i< oldPointMarkers.length; i++){
+        removePointerHelper(1); 
+    }
+    
+    for(var i =0; i< points.length; i++){
+        createTempMarker(points[i]);
+        
+        setRoutePoint();
+    }    
 }
 
 
